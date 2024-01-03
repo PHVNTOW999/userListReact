@@ -1,9 +1,15 @@
 import React from 'react';
 import UserCart from "./UserCart";
 function App() {
+    const listLength = [1, 2, 3]
+
     return (
         <div className="App">
-            <UserCart />
+            {
+                listLength.map((user, index) => {
+                    <UserCart key={index} />
+                })
+            }
         </div>
     );
 }
