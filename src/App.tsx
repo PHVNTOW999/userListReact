@@ -1,7 +1,7 @@
 import React from 'react';
 import UserCart from "./UserCart";
 function App() {
-    const listLength = [1, 2, 3]
+    const listLength = [1, 2, 3, 4, 5, 6, 7]
 
     return (
         <div className="App">

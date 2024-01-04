@@ -63,11 +63,11 @@ const UserCart = () => {
         <div className="userCart">
             {
                 user ?
-                    <div className="userCart__wrap">
-                        <div className="userCart__ava w-32">
+                    <div className="userCart__wrap bg-zinc-700 text-white cursor-pointer border border-black">
+                        <div className="userCart__ava w-32 mr-auto ml-auto">
                             <img src={`${user.avatar}`} alt=""/>
                         </div>
-                        <div className="userCart__fullname">
+                        <div className="userCart__fullname text-center">
                             <div className="userCart__fullname-first ">{ user.first_name }</div>
                             <div className="userCart__fullname-last">{ user.last_name }</div>
                         </div>
