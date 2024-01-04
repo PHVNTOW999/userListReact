@@ -64,11 +64,11 @@ const UserCart = () => {
             {
                 user ?
                     <div className="userCart__wrap">
-                        <div className="userCart__ava">
+                        <div className="userCart__ava w-32">
                             <img src={`${user.avatar}`} alt=""/>
                         </div>
                         <div className="userCart__fullname">
-                            <div className="userCart__fullname-first">{ user.first_name }</div>
+                            <div className="userCart__fullname-first ">{ user.first_name }</div>
                             <div className="userCart__fullname-last">{ user.last_name }</div>
                         </div>
                     </div>

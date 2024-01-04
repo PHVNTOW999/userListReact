@@ -5,11 +5,11 @@ function App() {
 
     return (
         <div className="App">
-            {
-                listLength.map((user, index) => {
-                    <UserCart key={index} />
-                })
-            }
+            <div className="userList grid grid-cols-4">
+                { listLength.map((number) =>
+                    <UserCart key={number} />
+                )}
+            </div>
         </div>
     );
 }
