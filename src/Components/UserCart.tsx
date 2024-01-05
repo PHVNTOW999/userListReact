@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
+import {Link, Route, Router, Routes} from "react-router-dom";
+import UserPage from "../Pages/UserPage";
 
 const UserCart = () => {
 
@@ -38,7 +40,7 @@ const UserCart = () => {
             street_name: String
             zip_code: String
         }
-        credit_card : {
+        credit_card: {
             cc_number: String
         }
     }
@@ -50,7 +52,6 @@ const UserCart = () => {
     useEffect(() => {
         async function getUser() {
             await axios.get(api).then(data => {
-                console.log(data.data)
                 setUser(data.data)
             })
         }
@@ -59,23 +60,29 @@ const UserCart = () => {
     }, [])
 
     return (
-
         <div className="userCart">
             {
                 user ?
-                    <div className="userCart__wrap bg-zinc-700 text-white cursor-pointer border border-black">
-                        <div className="userCart__ava w-32 mr-auto ml-auto">
-                            <img src={`${user.avatar}`} alt=""/>
+                    <Link to={`/user/${user.uid}`} state={{ data: user}}>
+                        <div className="userCart__wrap bg-zinc-700 text-white cursor-pointer border border-black">
+                            <div className="userCart__ava w-32 mr-auto ml-auto">
+                                <img src={`${user.avatar}`} alt=""/>
+                            </div>
+                            <div className="userCart__fullname text-center">
+                                <div className="userCart__fullname-first ">{user.first_name}</div>
+                                <div className="userCart__fullname-last">{user.last_name}</div>
+                            </div>
                         </div>
-                        <div className="userCart__fullname text-center">
-                            <div className="userCart__fullname-first ">{ user.first_name }</div>
-                            <div className="userCart__fullname-last">{ user.last_name }</div>
-                        </div>
+                    </Link>
+                    :
+                    <div
+                        className=" inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status">
+                            <span
+                                className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
                     </div>
-                    : null
             }
         </div>
-
     );
 };
 

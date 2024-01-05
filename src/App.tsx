@@ -1,5 +1,5 @@
 import React from 'react';
-import UserCart from "./UserCart";
+import UserCart from "./Components/UserCart";
 function App() {
     const listLength = [1, 2, 3, 4, 5, 6, 7]
 
