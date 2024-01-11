@@ -6,18 +6,18 @@ import UserPage from "../Pages/UserPage";
 const UserCart = () => {
 
     type Iuser = {
-        avatar: String
-        date_of_birth: String
-        email: String
-        first_name: String
-        gender: String
+        uid: String
         id: Number
-        last_name: String
+        avatar: String
+        email: String
+        username: String
         password: String
+        first_name: String
+        last_name: String
+        gender: String
+        date_of_birth: String
         phone_number: String
         social_insurance_number: String
-        uid: String
-        username: String
         subscription: {
             payment_method: String
             plan: String
