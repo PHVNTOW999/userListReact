@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Link, Route, Router, Routes} from "react-router-dom";
 import UserPage from "../Pages/UserPage";
 
-const UserCart = () => {
+const UserCart = (props: { width: Number; }) => {
 
     type Iuser = {
         uid: String
@@ -63,7 +63,7 @@ const UserCart = () => {
         <div className="userCart">
             {
                 user ?
-                    <Link to={`/user/${user.uid}`} state={{ data: user}}>
+                    <Link to={`/user/${user.uid}`} state={{ data: user, width: props.width}}>
                         <div className="userCart__wrap bg-zinc-700 text-white cursor-pointer border border-black">
                             <div className="userCart__ava w-32 mr-auto ml-auto">
                                 <img src={`${user.avatar}`} alt=""/>

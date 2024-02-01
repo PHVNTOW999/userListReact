@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const UserPage = () => {
     const location = useLocation()
@@ -7,6 +7,12 @@ const UserPage = () => {
     return (
         <div className="userPage w-4/6 m-auto">
             <section className="mt-10">
+                <div className="backBTN">
+                    <Link to="/">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">Back</button>
+                    </Link>
+                </div>
+                {/*{ location.state.width }*/}
                 <div className="userPage__avatar w-2/4 float-left bg-zinc-700">
                     <img className="w-full" src={location.state.data.avatar} alt=""/>
                 </div>
