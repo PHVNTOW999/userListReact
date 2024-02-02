@@ -1,8 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
 import UserCart from "./Components/UserCart";
 function App() {
-    const listLength = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    // function for generate new array, need for map on userCart
+    const generateArray = (max: number) => (
+        [...new Array(Math.round(Math.random() * max))].map(() => Math.round(Math.random() * max))
+    );
+
+    const listLength = generateArray(50)
+
     const main = useRef(null);
+
     // main width in pixels
     const [width, setWidth] = useState(0)
 
@@ -18,8 +25,8 @@ function App() {
     return (
         <div className="App">
             <div className={className} ref={main}>
-                { listLength.map((number) =>
-                    <UserCart width={width} key={number} />
+                { listLength.map((number, i) =>
+                    <UserCart width={width} key={i} />
                 )}
             </div>
         </div>
